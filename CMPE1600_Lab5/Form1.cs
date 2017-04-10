@@ -84,10 +84,12 @@ namespace CMPE1600_Lab5
             if (UI_ContrastRadio.Checked)
             {
                 Contrast();
+                trackBar1.Value = 50;
             }
             else if(UI_TintRadio.Checked)
             {
                 Tint();
+                trackBar1.Value = 50;
             }
         }
 

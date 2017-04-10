@@ -143,12 +143,13 @@
             this.trackBar1.Size = new System.Drawing.Size(247, 45);
             this.trackBar1.TabIndex = 4;
             this.trackBar1.TickFrequency = 5;
+            this.trackBar1.Value = 50;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(371, 493);
+            this.label1.Location = new System.Drawing.Point(380, 493);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(13, 13);
             this.label1.TabIndex = 4;
@@ -157,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(586, 493);
+            this.label2.Location = new System.Drawing.Point(596, 495);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(25, 13);
             this.label2.TabIndex = 5;
@@ -172,11 +173,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(474, 507);
+            this.label3.Location = new System.Drawing.Point(490, 507);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.Size = new System.Drawing.Size(19, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "0";
+            this.label3.Text = "50";
             // 
             // Form1
             // 
