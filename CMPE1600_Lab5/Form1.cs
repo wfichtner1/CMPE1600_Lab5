@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace CMPE1600_Lab5
 {
+    public delegate void delVoidInt(int i);
     public partial class Form1 : Form
     {
         Bitmap bitMap;
@@ -177,6 +178,11 @@ namespace CMPE1600_Lab5
             pictureBox1.Image = bitMap;
         }
 
+        private void CBMethod(int i)
+        {
+            UI_pb.value = i;
+        }
+
         public void Noise()
         {
             Color tempColor;
@@ -199,8 +205,31 @@ namespace CMPE1600_Lab5
                     Color newColor = Color.FromArgb(rValue, gValue, bValue);
                     bitMap.SetPixel(x, y, newColor);
                 }
+
+                if (InvokeRequired)
+                {
+                    try
+                    {
+                        Invoke(new delVoidInt(CBMethod), (x * 100)/ bitMap.Width);
+                    }
+                    catch (Exception error)
+                    {
+
+                    }
+                }
             }
             pictureBox1.Image = bitMap;
+            if (InvokeRequired)
+            {
+                try
+                {
+                    Invoke(new delVoidInt(CBMethod), (x * 100) / bitMap.Width); // this one needs to be a delvoidvoid
+                }
+                catch (Exception error)
+                {
+
+                }
+            }
         }
     }
 
