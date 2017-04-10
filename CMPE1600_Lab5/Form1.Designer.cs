@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -73,6 +74,7 @@
             this.UI_TransformButton.TabIndex = 2;
             this.UI_TransformButton.Text = "Transform";
             this.UI_TransformButton.UseVisualStyleBackColor = true;
+            this.UI_TransformButton.Click += new System.EventHandler(this.UI_TransformButton_Click);
             // 
             // groupBox1
             // 
@@ -98,6 +100,7 @@
             this.UI_ContrastRadio.TabStop = true;
             this.UI_ContrastRadio.Text = "Contrast";
             this.UI_ContrastRadio.UseVisualStyleBackColor = true;
+            this.UI_ContrastRadio.CheckedChanged += new System.EventHandler(this.UI_ContrastRadio_CheckedChanged);
             // 
             // UI_BWRadio
             // 
@@ -108,6 +111,7 @@
             this.UI_BWRadio.TabIndex = 1;
             this.UI_BWRadio.Text = "Black and White";
             this.UI_BWRadio.UseVisualStyleBackColor = true;
+            this.UI_BWRadio.CheckedChanged += new System.EventHandler(this.UI_BWRadio_CheckedChanged);
             // 
             // UI_TintRadio
             // 
@@ -118,6 +122,7 @@
             this.UI_TintRadio.TabIndex = 2;
             this.UI_TintRadio.Text = "Tint";
             this.UI_TintRadio.UseVisualStyleBackColor = true;
+            this.UI_TintRadio.CheckedChanged += new System.EventHandler(this.UI_TintRadio_CheckedChanged);
             // 
             // UI_NoiseRadio
             // 
@@ -128,13 +133,17 @@
             this.UI_NoiseRadio.TabIndex = 3;
             this.UI_NoiseRadio.Text = "Noise";
             this.UI_NoiseRadio.UseVisualStyleBackColor = true;
+            this.UI_NoiseRadio.CheckedChanged += new System.EventHandler(this.UI_NoiseRadio_CheckedChanged);
             // 
             // trackBar1
             // 
             this.trackBar1.Location = new System.Drawing.Point(374, 459);
+            this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(247, 45);
             this.trackBar1.TabIndex = 4;
+            this.trackBar1.TickFrequency = 5;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // label1
             // 
@@ -159,11 +168,22 @@
             this.openFileDialog1.Filter = "|\"jpeg\"|*.jpg|\"png\"|*.png|\"bmp\"|*.bmp|\"All Files\"|*.*|";
             this.openFileDialog1.ShowHelp = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.Color.Blue;
+            this.label3.Location = new System.Drawing.Point(474, 507);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 562);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.trackBar1);
@@ -196,6 +216,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label3;
     }
 }
 
