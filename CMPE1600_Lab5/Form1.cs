@@ -24,11 +24,11 @@ namespace CMPE1600_Lab5
         {
             try
             {
-                if(openFileDialog1.ShowDialog() == DialogResult.OK)
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     this.Text = openFileDialog1.SafeFileName;
                     pictureBox1.Load(openFileDialog1.SafeFileName);
-                    bitMap = new Bitmap(pictureBox1.Image);                    
+                    bitMap = new Bitmap(pictureBox1.Image);
                 }
             }
             catch (Exception)
@@ -43,7 +43,7 @@ namespace CMPE1600_Lab5
             {
                 label1.Text = "Less";
                 label2.Text = "More";
-                
+
             }
         }
 
@@ -83,14 +83,19 @@ namespace CMPE1600_Lab5
         {
             if (UI_ContrastRadio.Checked)
             {
-                Contrast();
-                trackBar1.Value = 50;
+                Contrast();                
             }
-            else if(UI_TintRadio.Checked)
+            else if (UI_TintRadio.Checked)
             {
                 Tint();
-                trackBar1.Value = 50;
+                
             }
+            else if(UI_NoiseRadio.Checked)
+            {
+                Noise();                
+            }
+
+            trackBar1.Value = 50;
         }
 
         public void Contrast()
@@ -155,13 +160,13 @@ namespace CMPE1600_Lab5
                     gValue = tempColor.G;
                     bValue = tempColor.B;
 
-                   if (trackBar1.Value < 50)
+                    if (trackBar1.Value < 50)
                     {
-                        rValue = ((rValue + (50 - trackBar1.Value)) > 255) ? 255: (rValue + (50 - trackBar1.Value));
+                        rValue = ((rValue + (50 - trackBar1.Value)) > 255) ? 255 : (rValue + (50 - trackBar1.Value));
                     }
-                   else if (trackBar1.Value > 50)
+                    else if (trackBar1.Value > 50)
                     {
-                        gValue = ((gValue + (trackBar1.Value + 50)) > 255) ? 255: (gValue + (trackBar1.Value + 50));
+                        gValue = ((gValue + (trackBar1.Value + 50)) > 255) ? 255 : (gValue + (trackBar1.Value + 50));
                     }
 
 
@@ -171,9 +176,34 @@ namespace CMPE1600_Lab5
             }
             pictureBox1.Image = bitMap;
         }
+
+        public void Noise()
+        {
+            Color tempColor;
+            Random rand = new Random();
+            int rValue = 0, gValue = 0, bValue = 0;
+
+            for (int x = 0; x < bitMap.Width; x++)
+            {
+                for (int y = 0; y < bitMap.Height; y++)
+                {
+                    tempColor = bitMap.GetPixel(x, y);
+                    rValue = tempColor.R;
+                    gValue = tempColor.G;
+                    bValue = tempColor.B;
+
+                    rValue = (rValue + rand.Next(-(trackBar1.Value), trackBar1.Value));
+
+                   
+
+                    Color newColor = Color.FromArgb(rValue, gValue, bValue);
+                    bitMap.SetPixel(x, y, newColor);
+                }
+            }
+            pictureBox1.Image = bitMap;
+        }
     }
 
-        
-    }
+}
 
 
