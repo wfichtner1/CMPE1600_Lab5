@@ -32,15 +32,16 @@
             this.UI_LoadButton = new System.Windows.Forms.Button();
             this.UI_TransformButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.UI_ContrastRadio = new System.Windows.Forms.RadioButton();
-            this.UI_BWRadio = new System.Windows.Forms.RadioButton();
-            this.UI_TintRadio = new System.Windows.Forms.RadioButton();
             this.UI_NoiseRadio = new System.Windows.Forms.RadioButton();
+            this.UI_TintRadio = new System.Windows.Forms.RadioButton();
+            this.UI_BWRadio = new System.Windows.Forms.RadioButton();
+            this.UI_ContrastRadio = new System.Windows.Forms.RadioButton();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.label3 = new System.Windows.Forms.Label();
+            this.UI_pb = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -48,6 +49,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
@@ -58,6 +60,7 @@
             // 
             // UI_LoadButton
             // 
+            this.UI_LoadButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.UI_LoadButton.Location = new System.Drawing.Point(12, 459);
             this.UI_LoadButton.Name = "UI_LoadButton";
             this.UI_LoadButton.Size = new System.Drawing.Size(75, 23);
@@ -68,6 +71,8 @@
             // 
             // UI_TransformButton
             // 
+            this.UI_TransformButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.UI_TransformButton.Enabled = false;
             this.UI_TransformButton.Location = new System.Drawing.Point(818, 459);
             this.UI_TransformButton.Name = "UI_TransformButton";
             this.UI_TransformButton.Size = new System.Drawing.Size(75, 23);
@@ -78,6 +83,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.groupBox1.Controls.Add(this.UI_NoiseRadio);
             this.groupBox1.Controls.Add(this.UI_TintRadio);
             this.groupBox1.Controls.Add(this.UI_BWRadio);
@@ -88,6 +94,39 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ModificationType";
+            // 
+            // UI_NoiseRadio
+            // 
+            this.UI_NoiseRadio.AutoSize = true;
+            this.UI_NoiseRadio.Location = new System.Drawing.Point(145, 64);
+            this.UI_NoiseRadio.Name = "UI_NoiseRadio";
+            this.UI_NoiseRadio.Size = new System.Drawing.Size(52, 17);
+            this.UI_NoiseRadio.TabIndex = 3;
+            this.UI_NoiseRadio.Text = "Noise";
+            this.UI_NoiseRadio.UseVisualStyleBackColor = true;
+            this.UI_NoiseRadio.CheckedChanged += new System.EventHandler(this.UI_NoiseRadio_CheckedChanged);
+            // 
+            // UI_TintRadio
+            // 
+            this.UI_TintRadio.AutoSize = true;
+            this.UI_TintRadio.Location = new System.Drawing.Point(145, 32);
+            this.UI_TintRadio.Name = "UI_TintRadio";
+            this.UI_TintRadio.Size = new System.Drawing.Size(43, 17);
+            this.UI_TintRadio.TabIndex = 2;
+            this.UI_TintRadio.Text = "Tint";
+            this.UI_TintRadio.UseVisualStyleBackColor = true;
+            this.UI_TintRadio.CheckedChanged += new System.EventHandler(this.UI_TintRadio_CheckedChanged);
+            // 
+            // UI_BWRadio
+            // 
+            this.UI_BWRadio.AutoSize = true;
+            this.UI_BWRadio.Location = new System.Drawing.Point(6, 64);
+            this.UI_BWRadio.Name = "UI_BWRadio";
+            this.UI_BWRadio.Size = new System.Drawing.Size(104, 17);
+            this.UI_BWRadio.TabIndex = 1;
+            this.UI_BWRadio.Text = "Black and White";
+            this.UI_BWRadio.UseVisualStyleBackColor = true;
+            this.UI_BWRadio.CheckedChanged += new System.EventHandler(this.UI_BWRadio_CheckedChanged);
             // 
             // UI_ContrastRadio
             // 
@@ -102,41 +141,9 @@
             this.UI_ContrastRadio.UseVisualStyleBackColor = true;
             this.UI_ContrastRadio.CheckedChanged += new System.EventHandler(this.UI_ContrastRadio_CheckedChanged);
             // 
-            // UI_BWRadio
-            // 
-            this.UI_BWRadio.AutoSize = true;
-            this.UI_BWRadio.Location = new System.Drawing.Point(6, 64);
-            this.UI_BWRadio.Name = "UI_BWRadio";
-            this.UI_BWRadio.Size = new System.Drawing.Size(104, 17);
-            this.UI_BWRadio.TabIndex = 1;
-            this.UI_BWRadio.Text = "Black and White";
-            this.UI_BWRadio.UseVisualStyleBackColor = true;
-            this.UI_BWRadio.CheckedChanged += new System.EventHandler(this.UI_BWRadio_CheckedChanged);
-            // 
-            // UI_TintRadio
-            // 
-            this.UI_TintRadio.AutoSize = true;
-            this.UI_TintRadio.Location = new System.Drawing.Point(145, 32);
-            this.UI_TintRadio.Name = "UI_TintRadio";
-            this.UI_TintRadio.Size = new System.Drawing.Size(43, 17);
-            this.UI_TintRadio.TabIndex = 2;
-            this.UI_TintRadio.Text = "Tint";
-            this.UI_TintRadio.UseVisualStyleBackColor = true;
-            this.UI_TintRadio.CheckedChanged += new System.EventHandler(this.UI_TintRadio_CheckedChanged);
-            // 
-            // UI_NoiseRadio
-            // 
-            this.UI_NoiseRadio.AutoSize = true;
-            this.UI_NoiseRadio.Location = new System.Drawing.Point(145, 64);
-            this.UI_NoiseRadio.Name = "UI_NoiseRadio";
-            this.UI_NoiseRadio.Size = new System.Drawing.Size(52, 17);
-            this.UI_NoiseRadio.TabIndex = 3;
-            this.UI_NoiseRadio.Text = "Noise";
-            this.UI_NoiseRadio.UseVisualStyleBackColor = true;
-            this.UI_NoiseRadio.CheckedChanged += new System.EventHandler(this.UI_NoiseRadio_CheckedChanged);
-            // 
             // trackBar1
             // 
+            this.trackBar1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.trackBar1.Location = new System.Drawing.Point(374, 459);
             this.trackBar1.Maximum = 100;
             this.trackBar1.Name = "trackBar1";
@@ -148,6 +155,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(380, 493);
             this.label1.Name = "label1";
@@ -157,6 +165,7 @@
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(596, 495);
             this.label2.Name = "label2";
@@ -171,6 +180,7 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.Blue;
             this.label3.Location = new System.Drawing.Point(490, 507);
@@ -179,11 +189,20 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "50";
             // 
+            // UI_pb
+            // 
+            this.UI_pb.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.UI_pb.Location = new System.Drawing.Point(12, 430);
+            this.UI_pb.Name = "UI_pb";
+            this.UI_pb.Size = new System.Drawing.Size(881, 23);
+            this.UI_pb.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(905, 562);
+            this.Controls.Add(this.UI_pb);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
@@ -218,6 +237,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar UI_pb;
     }
 }
 
