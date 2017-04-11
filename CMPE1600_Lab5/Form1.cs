@@ -135,6 +135,7 @@ namespace CMPE1600_Lab5
             UI_pb.Value = 0;
             trackBar1.Value = 50;
             UI_TransformButton.Enabled = true;
+            label3.Text = trackBar1.Value.ToString();
         }
 
         //Changes the contrast of the picture
